@@ -4,23 +4,24 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
 import { Mail, Phone, MapPin } from 'lucide-react';
-
 export const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    message: '',
+    message: ''
   });
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     toast.success("Thank you for reaching out. We'll be in touch soon.");
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      message: ''
+    });
   };
-
-  return (
-    <section id="contact" className="section-padding bg-forest text-cream">
+  return <section id="contact" className="section-padding bg-forest text-cream">
       <div className="container-wide">
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Left - Content */}
@@ -41,9 +42,7 @@ export const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-cream/60">Email</p>
-                  <a href="mailto:hello@livadeaholdings.com" className="text-cream hover:text-gold-light transition-colors">
-                    hello@livadeaholdings.com
-                  </a>
+                  <a href="mailto:hello@livadeaholdings.com" className="text-cream hover:text-gold-light transition-colors">hi@livadea.com</a>
                 </div>
               </div>
 
@@ -53,9 +52,7 @@ export const Contact = () => {
                 </div>
                 <div>
                   <p className="text-sm text-cream/60">Phone</p>
-                  <a href="tel:+15125551234" className="text-cream hover:text-gold-light transition-colors">
-                    (512) 555-1234
-                  </a>
+                  <a href="tel:+15125551234" className="text-cream hover:text-gold-light transition-colors">(254) 913-9875</a>
                 </div>
               </div>
 
@@ -76,56 +73,37 @@ export const Contact = () => {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm text-cream/70 mb-2">Your Name</label>
-                <Input
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  placeholder="John Smith"
-                  required
-                  className="bg-cream/5 border-cream/20 text-cream placeholder:text-cream/40 focus:border-gold"
-                />
+                <Input value={formData.name} onChange={e => setFormData({
+                ...formData,
+                name: e.target.value
+              })} placeholder="John Smith" required className="bg-cream/5 border-cream/20 text-cream placeholder:text-cream/40 focus:border-gold" />
               </div>
 
               <div>
                 <label className="block text-sm text-cream/70 mb-2">Email Address</label>
-                <Input
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  placeholder="john@example.com"
-                  required
-                  className="bg-cream/5 border-cream/20 text-cream placeholder:text-cream/40 focus:border-gold"
-                />
+                <Input type="email" value={formData.email} onChange={e => setFormData({
+                ...formData,
+                email: e.target.value
+              })} placeholder="john@example.com" required className="bg-cream/5 border-cream/20 text-cream placeholder:text-cream/40 focus:border-gold" />
               </div>
 
               <div>
                 <label className="block text-sm text-cream/70 mb-2">Phone (Optional)</label>
-                <Input
-                  type="tel"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  placeholder="(512) 555-1234"
-                  className="bg-cream/5 border-cream/20 text-cream placeholder:text-cream/40 focus:border-gold"
-                />
+                <Input type="tel" value={formData.phone} onChange={e => setFormData({
+                ...formData,
+                phone: e.target.value
+              })} placeholder="(512) 555-1234" className="bg-cream/5 border-cream/20 text-cream placeholder:text-cream/40 focus:border-gold" />
               </div>
 
               <div>
                 <label className="block text-sm text-cream/70 mb-2">How Can We Help?</label>
-                <Textarea
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  placeholder="Tell us about yourself or your business..."
-                  rows={4}
-                  required
-                  className="bg-cream/5 border-cream/20 text-cream placeholder:text-cream/40 focus:border-gold resize-none"
-                />
+                <Textarea value={formData.message} onChange={e => setFormData({
+                ...formData,
+                message: e.target.value
+              })} placeholder="Tell us about yourself or your business..." rows={4} required className="bg-cream/5 border-cream/20 text-cream placeholder:text-cream/40 focus:border-gold resize-none" />
               </div>
 
-              <Button
-                type="submit"
-                variant="hero"
-                size="lg"
-                className="w-full"
-              >
+              <Button type="submit" variant="hero" size="lg" className="w-full">
                 Send Message
               </Button>
 
@@ -136,6 +114,5 @@ export const Contact = () => {
           </div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
