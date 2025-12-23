@@ -30,7 +30,7 @@ export const WhatWeLookFor = () => {
     'Home Services',
     'Healthcare Services',
     'Specialty Retail',
-    'Food & Beverage',
+    'Energy',
   ];
 
   return (
