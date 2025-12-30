@@ -1,11 +1,21 @@
 import foundersImage from '@/assets/founders-california.jpeg';
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 
 export const WhyWeFounded = () => {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation(0.2);
+  const { ref: imageRef, isVisible: imageVisible } = useScrollAnimation(0.2);
+  const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation(0.1);
+
   return (
     <section className="py-24 md:py-32 bg-background">
       <div className="container mx-auto px-6 md:px-8 max-w-4xl">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div 
+          ref={headerRef}
+          className={`text-center mb-16 transition-all duration-700 ease-out ${
+            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl text-foreground mb-6">
             Why We Founded Livadea
           </h2>
@@ -15,7 +25,12 @@ export const WhyWeFounded = () => {
         </div>
 
         {/* Founders Image */}
-        <div className="mb-16 flex justify-center">
+        <div 
+          ref={imageRef}
+          className={`mb-16 flex justify-center transition-all duration-1000 ease-out delay-200 ${
+            imageVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+          }`}
+        >
           <div className="relative">
             <img
               src={foundersImage}
@@ -28,48 +43,71 @@ export const WhyWeFounded = () => {
         </div>
 
         {/* Story Content */}
-        <div className="prose prose-lg max-w-none text-muted-foreground leading-relaxed space-y-8">
-          <p className="text-xl text-foreground font-medium">
+        <div 
+          ref={contentRef}
+          className="prose prose-lg max-w-none text-muted-foreground leading-relaxed space-y-8"
+        >
+          <p className={`text-xl text-foreground font-medium transition-all duration-700 ${
+            contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}>
             Livadea was born from a promise.
           </p>
 
-          <p>
+          <p className={`transition-all duration-700 delay-100 ${
+            contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}>
             One of us came to the United States as an immigrant with a single mother who sacrificed everything so her child could have a better future. She worked relentlessly, believed deeply in education, and lived by one simple principle: do the work, and do it right. That work ethic became the foundation of our life.
           </p>
 
-          <p>
+          <p className={`transition-all duration-700 delay-150 ${
+            contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}>
             When she passed away in 2024, we made a commitment to honor her legacy — not with words, but with action. Livadea exists to fulfill that promise: to build something meaningful, enduring, and worthy of the sacrifices that made it possible. Not just for us, but for our children, and the families who will trust us with what they've built.
           </p>
 
-          <div className="border-l-4 border-primary/30 pl-6 my-12">
+          <div className={`border-l-4 border-primary/30 pl-6 my-12 transition-all duration-700 delay-200 ${
+            contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
+          }`}>
             <p className="text-xl text-foreground font-medium italic">
               Before Livadea, we learned our lessons the hard way.
             </p>
           </div>
 
-          <p>
+          <p className={`transition-all duration-700 delay-200 ${
+            contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}>
             In 2018, we started an e-commerce business of our own. It was our first real venture — and our first major failure. We faced debt, operational breakdowns, systems that didn't scale, and leadership decisions with real consequences. It was painful. And it was invaluable. It taught us what business books never can: how fragile companies can be without discipline, how important cash flow really is, and how leadership shows up when things don't go to plan. Those lessons shape how we operate today.
           </p>
 
-          <p>
+          <p className={`transition-all duration-700 delay-250 ${
+            contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}>
             For more than a decade, we've worked inside an oil and gas technology startup at the forefront of chemical enhanced oil recovery, advising some of the world's largest energy companies. The work demanded precision, rigor, and respect for decades of research and development rooted in the University of Texas engineering tradition. It taught us what it truly means to be world-class in a niche — to obsess over details, to systemize knowledge, and to earn trust through results. Those same principles now guide how we approach every business we acquire.
           </p>
 
-          <p>
+          <p className={`transition-all duration-700 delay-300 ${
+            contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}>
             Alongside this, one of us has spent years serving customers directly and teaching in the classroom — as a middle school educator with a background in nutritional sciences and a master's in education. That experience built a deep respect for people, patience, and the quiet leadership it takes to help others grow. It's where our people-first mindset was forged.
           </p>
 
-          <div className="border-l-4 border-primary/30 pl-6 my-12">
+          <div className={`border-l-4 border-primary/30 pl-6 my-12 transition-all duration-700 delay-300 ${
+            contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4'
+          }`}>
             <p className="text-xl text-foreground font-medium italic">
               Together, these paths shaped a shared belief: great businesses are built by people — and they deserve owners who honor that.
             </p>
           </div>
 
-          <p>
+          <p className={`transition-all duration-700 delay-350 ${
+            contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}>
             We didn't create Livadea to build a portfolio. We created it to become stewards — of companies, of teams, and of legacies. When a business becomes part of our family, it stays that way. We don't flip. We don't chase exits. We commit for decades. We show up. We answer our own phones. And we carry forward what matters most to the people who built it.
           </p>
 
-          <p className="text-xl text-foreground font-medium text-center mt-16">
+          <p className={`text-xl text-foreground font-medium text-center mt-16 transition-all duration-700 delay-400 ${
+            contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+          }`}>
             This is our life's work. And we would be honored to carry your legacy forward.
           </p>
         </div>
