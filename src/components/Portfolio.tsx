@@ -2,13 +2,16 @@ import { ArrowRight, ExternalLink, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import okanaLogo from '@/assets/okana-logo.jpg';
 import nextPartnership from '@/assets/next-partnership.jpg';
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 
 export const Portfolio = () => {
+  const { ref, isVisible } = useScrollAnimation(0.1);
+
   return (
     <section id="portfolio" className="section-padding bg-secondary/30">
-      <div className="container-wide">
+      <div className="container-wide" ref={ref}>
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <p className="eyebrow mb-4">Portfolio</p>
           <h2 className="heading-section text-forest mb-6">
             Businesses We Operate
@@ -20,7 +23,7 @@ export const Portfolio = () => {
         </div>
 
         {/* Okana - First Acquisition */}
-        <div className="max-w-4xl mx-auto mb-12">
+        <div className={`max-w-4xl mx-auto mb-12 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="card-elegant overflow-hidden">
             <div className="grid md:grid-cols-2 gap-0">
               {/* Image */}
@@ -80,7 +83,7 @@ export const Portfolio = () => {
         </div>
 
         {/* Coming Soon */}
-        <div className="max-w-4xl mx-auto">
+        <div className={`max-w-4xl mx-auto transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="card-elegant overflow-hidden">
             <div className="grid md:grid-cols-2 gap-0">
               {/* Image */}

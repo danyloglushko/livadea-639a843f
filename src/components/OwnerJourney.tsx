@@ -1,4 +1,5 @@
 import { Phone, Search, Building, FileText, Handshake } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 
 const steps = [
   {
@@ -39,11 +40,13 @@ const steps = [
 ];
 
 export const OwnerJourney = () => {
+  const { ref, isVisible } = useScrollAnimation(0.1);
+
   return (
     <section className="section-padding bg-secondary/30">
-      <div className="container-wide">
+      <div className="container-wide" ref={ref}>
         {/* Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
+        <div className={`max-w-3xl mx-auto text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <p className="eyebrow mb-4">The Process</p>
           <h2 className="heading-section text-forest mb-6">
             What a Conversation Typically Looks Like
@@ -66,7 +69,11 @@ export const OwnerJourney = () => {
             {/* Steps */}
             <div className="space-y-8">
               {steps.map((step, index) => (
-                <div key={index} className="relative flex gap-6 md:gap-8">
+                <div 
+                  key={index} 
+                  className={`relative flex gap-6 md:gap-8 transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+                  style={{ transitionDelay: isVisible ? `${200 + index * 150}ms` : '0ms' }}
+                >
                   {/* Icon */}
                   <div className="relative z-10 flex-shrink-0">
                     <div className="w-16 h-16 rounded-full bg-background border-2 border-gold/30 flex items-center justify-center shadow-sm">

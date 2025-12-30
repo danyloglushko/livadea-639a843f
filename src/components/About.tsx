@@ -1,6 +1,9 @@
 import { Shield, Users, MapPin, ArrowRight } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 
 export const About = () => {
+  const { ref, isVisible } = useScrollAnimation(0.1);
+
   const trustSignals = [
     { 
       icon: Shield, 
@@ -26,10 +29,10 @@ export const About = () => {
 
   return (
     <section id="about" className="section-padding bg-gradient-section">
-      <div className="container-wide">
+      <div className="container-wide" ref={ref}>
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           {/* Left Content */}
-          <div>
+          <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <p className="eyebrow mb-4">About Livadea</p>
             <h2 className="heading-section text-forest mb-8">
               A Family Building Something That Lasts
@@ -53,11 +56,12 @@ export const About = () => {
           </div>
 
           {/* Right - Trust Signals Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div className={`grid grid-cols-1 sm:grid-cols-2 gap-6 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             {trustSignals.map((signal, index) => (
               <div
                 key={index}
-                className="card-elegant p-6"
+                className={`card-elegant p-6 transition-all duration-500`}
+                style={{ transitionDelay: isVisible ? `${300 + index * 100}ms` : '0ms' }}
               >
                 <signal.icon className="w-8 h-8 text-gold mb-4" />
                 <h3 className="font-serif text-lg font-medium text-forest mb-2">
