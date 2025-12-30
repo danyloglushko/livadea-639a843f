@@ -39,10 +39,14 @@ export const Portfolio = () => {
                   Ōkana
                 </h3>
                 <p className="eyebrow text-forest/60 mb-4">Premium Coffee Alternative</p>
-                <p className="text-muted-foreground mb-6">
+                <p className="text-muted-foreground mb-4">
                   Ōkana crafts organic, caffeine-free beverages designed to energize 
                   without the crash. We acquired the brand in 2024 and operate it as 
                   a core part of the Livadea family.
+                </p>
+                <p className="text-sm text-muted-foreground/80 italic mb-6">
+                  While Ōkana is a consumer brand, our acquisition philosophy is the same across 
+                  all industries: retain teams, respect founders, and operate with long-term stewardship.
                 </p>
 
                 {/* Stewardship Bullets */}

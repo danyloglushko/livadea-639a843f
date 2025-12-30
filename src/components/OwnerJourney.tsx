@@ -5,36 +5,36 @@ const steps = [
     icon: Phone,
     number: '01',
     title: 'Confidential Intro Call',
-    description: 'A brief, no-pressure conversation to understand your situation and goals.',
+    description: 'A brief, no-pressure conversation to understand your situation and goals. No commitment required.',
     timing: '15–30 minutes',
   },
   {
     icon: Search,
     number: '02',
-    title: 'Quick Fit Check',
-    description: 'We review basic business information to confirm mutual alignment.',
-    timing: '1–2 weeks',
+    title: 'Getting to Know Each Other',
+    description: "We share information openly and see if there's mutual alignment. You set the pace.",
+    timing: 'At your comfort',
   },
   {
     icon: Building,
     number: '03',
-    title: 'On-Site Visit',
-    description: 'We visit your business, meet your team, and see operations firsthand.',
-    timing: 'By arrangement',
+    title: 'Meeting in Person',
+    description: "If it feels right, we visit your business, meet your team, and learn about what you've built.",
+    timing: "When you're ready",
   },
   {
     icon: FileText,
     number: '04',
-    title: 'LOI & Diligence',
-    description: 'A clear Letter of Intent followed by a thorough but respectful diligence process.',
-    timing: '2–6 weeks',
+    title: 'Formalizing Next Steps',
+    description: 'If we both want to move forward, we outline terms and review details together — always at your pace.',
+    timing: 'Flexible',
   },
   {
     icon: Handshake,
     number: '05',
     title: 'Transition & Stewardship',
-    description: 'We work together on a smooth handover and ongoing operational support.',
-    timing: 'Tailored to your needs',
+    description: 'We work together on a smooth handover designed around your timeline and priorities.',
+    timing: 'Tailored to you',
   },
 ];
 
@@ -46,11 +46,14 @@ export const OwnerJourney = () => {
         <div className="max-w-3xl mx-auto text-center mb-16">
           <p className="eyebrow mb-4">The Process</p>
           <h2 className="heading-section text-forest mb-6">
-            Your Path to a Thoughtful Transition
+            What a Conversation Typically Looks Like
           </h2>
-          <p className="body-regular text-muted-foreground max-w-2xl mx-auto">
-            We keep things simple and move at your pace. Here's what working with us looks like — 
-            from first call to ongoing partnership.
+          <p className="body-regular text-muted-foreground max-w-2xl mx-auto mb-6">
+            Every business and every owner is different. We move at your pace and only proceed when it feels right.
+          </p>
+          <p className="text-sm text-muted-foreground/80 max-w-xl mx-auto">
+            Here's a general sense of how conversations unfold — but nothing here is rigid. 
+            We follow your lead.
           </p>
         </div>
 
