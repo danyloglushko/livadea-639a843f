@@ -53,7 +53,7 @@ export const Contact = () => {
                 </div>
                 <div className="flex items-start gap-3">
                   <Shield className="w-4 h-4 text-gold-light mt-1 flex-shrink-0" />
-                  <span className="text-cream/80 text-sm">Completely confidential — we sign NDAs before receiving any sensitive info</span>
+                  <span className="text-cream/80 text-sm">Completely confidential — your information stays private</span>
                 </div>
               </div>
             </div>
