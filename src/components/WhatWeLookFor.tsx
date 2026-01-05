@@ -28,7 +28,6 @@ export const WhatWeLookFor = () => {
     'Manufacturing & Distribution',
     'Business Services',
     'Home Services',
-    'Healthcare Services',
     'Specialty Retail',
     'Energy',
   ];
