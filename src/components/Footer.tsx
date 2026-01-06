@@ -1,4 +1,5 @@
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
+import okanaLogo from '@/assets/okana-logo.jpeg';
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,13 +10,20 @@ export const Footer = () => {
       <div className="container-wide px-6 md:px-12 lg:px-20">
         <div className={`flex flex-col md:flex-row justify-between items-center gap-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {/* Logo & Tagline */}
-          <div className="text-center md:text-left">
-            <span className="font-serif text-2xl font-medium text-cream block mb-2">
-              Livadea Holdings
-            </span>
-            <p className="text-sm text-cream/50">
-              Stewards of Businesses. Partners to People.
-            </p>
+          <div className="flex items-center gap-4 text-center md:text-left">
+            <img 
+              src={okanaLogo} 
+              alt="Livadea Holdings" 
+              className="w-14 h-14 rounded-full object-cover shadow-lg border-2 border-cream/20"
+            />
+            <div>
+              <span className="font-serif text-2xl font-medium text-cream block mb-1">
+                Livadea Holdings
+              </span>
+              <p className="text-sm text-cream/50">
+                Stewards of Businesses. Partners to People.
+              </p>
+            </div>
           </div>
 
           {/* Links */}
