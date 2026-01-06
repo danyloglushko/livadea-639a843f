@@ -14,7 +14,7 @@ export const Footer = () => {
             <img 
               src={okanaLogoReverse} 
               alt="Livadea Holdings" 
-              className="w-16 h-16 md:w-14 md:h-14 rounded-full object-cover shadow-lg"
+              className="w-16 h-16 md:w-14 md:h-14 rounded-full object-cover shadow-lg transition-all duration-300 hover:shadow-[0_0_20px_rgba(255,248,240,0.4)] hover:scale-105 cursor-pointer"
             />
             <div>
               <span className="font-serif text-2xl font-medium text-cream block mb-1">

@@ -14,6 +14,7 @@ import { ForOwners } from '@/components/ForOwners';
 import { SellerFAQ } from '@/components/SellerFAQ';
 import { Contact } from '@/components/Contact';
 import { Footer } from '@/components/Footer';
+import { BackToTop } from '@/components/BackToTop';
 
 const Index = () => {
   return (
@@ -36,6 +37,7 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
+      <BackToTop />
     </div>
   );
 };
