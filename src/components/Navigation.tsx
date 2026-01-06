@@ -137,13 +137,14 @@ export const Navigation = () => {
             isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
-          {/* Decorative header */}
-          <div className="h-24 bg-gradient-to-br from-forest to-forest-dark flex items-end px-8 pb-4">
-            <p className="text-cream/70 text-sm font-medium">Navigation</p>
-          </div>
+          {/* Spacer for header */}
+          <div className="h-20" />
+
+          {/* Gold accent line */}
+          <div className="h-1 bg-gradient-to-r from-gold via-gold-light to-gold" />
 
           {/* Navigation Links */}
-          <div className="px-6 py-6 flex flex-col">
+          <div className="px-6 py-4 flex flex-col">
             {navLinks.map((link, index) => (
               <a 
                 key={link.label} 
@@ -153,12 +154,12 @@ export const Navigation = () => {
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 <div>
-                  <span className="text-xl font-serif font-medium text-forest group-hover:text-forest-dark transition-colors">
+                  <span className="text-xl font-serif font-medium text-forest group-hover:text-gold-dark transition-colors">
                     {link.label}
                   </span>
                   <p className="text-sm text-forest/50 mt-0.5">{link.description}</p>
                 </div>
-                <ArrowRight className="w-5 h-5 text-forest/30 group-hover:text-forest group-hover:translate-x-1 transition-all" />
+                <ArrowRight className="w-5 h-5 text-gold/50 group-hover:text-gold group-hover:translate-x-1 transition-all" />
               </a>
             ))}
           </div>
@@ -179,7 +180,7 @@ export const Navigation = () => {
           </div>
 
           {/* Footer accent */}
-          <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-forest via-forest-dark to-forest" />
+          <div className="absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r from-gold via-gold-light to-gold" />
         </div>
       </div>
     </>
