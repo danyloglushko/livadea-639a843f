@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import treeLogo from '@/assets/heritage-tree.jpg';
+import okanaLogo from '@/assets/okana-logo.jpeg';
 const navLinks = [{
   label: 'About',
   href: '#about'
@@ -50,11 +50,11 @@ export const Navigation = () => {
           {/* Logo */}
           <a href="#" className="flex items-center gap-3">
             <img 
-              src={treeLogo} 
+              src={okanaLogo} 
               alt="Livadea Holdings" 
-              className="w-8 h-8 md:w-10 md:h-10 rounded-full object-cover shadow-sm"
+              className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover shadow-md border-2 border-cream/20"
             />
-            <span className={`font-serif text-xl md:text-2xl font-medium tracking-tight transition-colors duration-300 ${isScrolled ? 'text-forest' : 'text-cream'}`}>LIVADEA Holdings</span>
+            <span className={`font-serif text-xl md:text-2xl font-medium tracking-tight transition-colors duration-300 ${isScrolled ? 'text-forest' : 'text-cream'}`}>Livadea Holdings</span>
           </a>
 
           {/* Desktop Navigation */}
