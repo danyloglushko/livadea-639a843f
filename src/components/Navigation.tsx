@@ -76,12 +76,12 @@ export const Navigation = () => {
         </nav>
 
         {/* Mobile Menu */}
-        {isMobileMenuOpen && <div className="lg:hidden absolute top-full left-0 right-0 bg-background/98 backdrop-blur-md border-b border-border shadow-medium animate-fade-in">
-            <div className="px-6 py-8 flex flex-col gap-6">
-              {navLinks.map(link => <a key={link.label} href={link.href} onClick={() => setIsMobileMenuOpen(false)} className="text-lg font-medium text-foreground hover:text-forest transition-colors">
+        {isMobileMenuOpen && <div className="lg:hidden fixed inset-0 top-[72px] bg-cream z-40 animate-fade-in overflow-y-auto">
+            <div className="px-8 py-10 flex flex-col gap-1">
+              {navLinks.map(link => <a key={link.label} href={link.href} onClick={() => setIsMobileMenuOpen(false)} className="text-xl font-serif font-medium text-forest hover:text-forest-dark transition-colors py-4 border-b border-forest/10">
                   {link.label}
                 </a>)}
-              <Button variant="elegant" size="lg" onClick={() => {
+              <Button variant="elegant" size="lg" className="mt-8 w-full" onClick={() => {
             setIsMobileMenuOpen(false);
             document.getElementById('contact')?.scrollIntoView({
               behavior: 'smooth'
