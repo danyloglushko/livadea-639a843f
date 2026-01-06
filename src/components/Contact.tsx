@@ -4,8 +4,10 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
 import { Mail, Phone, MapPin, Shield, Clock, Check } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 
 export const Contact = () => {
+  const { ref, isVisible } = useScrollAnimation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -25,11 +27,11 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-forest text-cream">
+    <section ref={ref} id="contact" className="section-padding bg-forest text-cream">
       <div className="container-wide">
         <div className="grid lg:grid-cols-2 gap-16">
           {/* Left - Content */}
-          <div>
+          <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <p className="eyebrow text-gold-light mb-4">Start a Conversation</p>
             <h2 className="heading-section mb-6">
               Request a Private Intro Call
@@ -88,7 +90,7 @@ export const Contact = () => {
           </div>
 
           {/* Right - Form */}
-          <div>
+          <div className={`transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             {/* What to Include Checklist */}
             <div className="bg-cream/5 rounded-lg p-5 mb-6 border border-cream/10">
               <p className="text-sm font-medium text-cream mb-3">Helpful to include (but not required):</p>

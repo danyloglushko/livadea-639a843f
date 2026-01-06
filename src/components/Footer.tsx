@@ -1,10 +1,13 @@
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
+
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const { ref, isVisible } = useScrollAnimation();
 
   return (
-    <footer className="bg-forest-dark text-cream/70 py-16">
+    <footer ref={ref} className="bg-forest-dark text-cream/70 py-16">
       <div className="container-wide px-6 md:px-12 lg:px-20">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
+        <div className={`flex flex-col md:flex-row justify-between items-center gap-8 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {/* Logo & Tagline */}
           <div className="text-center md:text-left">
             <span className="font-serif text-2xl font-medium text-cream block mb-2">
@@ -24,7 +27,7 @@ export const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-cream/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-cream/40">
+        <div className={`border-t border-cream/10 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-cream/40 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <p>© {currentYear} Livadea Holdings LLC. All rights reserved.</p>
           <p>Central Texas</p>
         </div>

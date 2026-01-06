@@ -1,8 +1,10 @@
 import { Shield, Heart, Award, Clock, Users } from 'lucide-react';
 import { useState } from 'react';
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 
 export const Values = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const { ref, isVisible } = useScrollAnimation();
 
   const values = [
     {
@@ -55,10 +57,10 @@ export const Values = () => {
   };
 
   return (
-    <section id="values" className="section-padding">
+    <section ref={ref} id="values" className="section-padding">
       <div className="container-wide">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <p className="eyebrow mb-4">Our Values</p>
           <h2 className="heading-section text-forest mb-6">
             What We Stand For
@@ -67,7 +69,7 @@ export const Values = () => {
         </div>
 
         {/* Circular Layout - Desktop */}
-        <div className="hidden lg:block relative max-w-4xl mx-auto mb-16" style={{ height: '600px' }}>
+        <div className={`hidden lg:block relative max-w-4xl mx-auto mb-16 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`} style={{ height: '600px' }}>
           {/* Center element */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-forest flex items-center justify-center shadow-xl">
             <span className="font-serif text-cream text-center text-lg leading-tight px-4">
@@ -157,7 +159,7 @@ export const Values = () => {
         </div>
 
         {/* Mobile/Tablet Layout - Horizontal scroll cards */}
-        <div className="lg:hidden flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory -mx-4 px-4">
+        <div className={`lg:hidden flex overflow-x-auto gap-4 pb-4 snap-x snap-mandatory -mx-4 px-4 transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {values.map((value, index) => (
             <div
               key={index}
@@ -177,7 +179,7 @@ export const Values = () => {
         </div>
 
         {/* Quote */}
-        <div className="mt-20 text-center max-w-3xl mx-auto">
+        <div className={`mt-20 text-center max-w-3xl mx-auto transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <blockquote className="font-serif text-2xl md:text-3xl text-forest/80 italic leading-relaxed">
             "We're not building a portfolio. We're building a family of businesses 
             we're proud to call our own."

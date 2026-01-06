@@ -1,6 +1,8 @@
 import { Target, Users, TrendingUp, Shield } from 'lucide-react';
+import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 
 export const WhatWeLookFor = () => {
+  const { ref, isVisible } = useScrollAnimation();
   const criteria = [
     {
       icon: Target,
@@ -33,10 +35,10 @@ export const WhatWeLookFor = () => {
   ];
 
   return (
-    <section className="section-padding bg-forest text-cream">
+    <section ref={ref} className="section-padding bg-forest text-cream">
       <div className="container-wide">
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <p className="eyebrow text-gold-light mb-4">What We Look For</p>
           <h2 className="heading-section mb-6">The Right Fit Matters</h2>
           <p className="body-large text-cream/75 max-w-2xl mx-auto">
@@ -48,7 +50,11 @@ export const WhatWeLookFor = () => {
         {/* Criteria Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {criteria.map((item, index) => (
-            <div key={index} className="text-center">
+            <div 
+              key={index} 
+              className={`text-center transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
+              style={{ transitionDelay: isVisible ? `${index * 100 + 200}ms` : '0ms' }}
+            >
               <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-cream/10 mb-6">
                 <item.icon className="w-7 h-7 text-gold-light" />
               </div>
@@ -59,7 +65,7 @@ export const WhatWeLookFor = () => {
         </div>
 
         {/* Industries */}
-        <div className="border-t border-cream/15 pt-12">
+        <div className={`border-t border-cream/15 pt-12 transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <p className="text-center text-sm uppercase tracking-widest text-cream/50 mb-8">
             Industries of Interest
           </p>
