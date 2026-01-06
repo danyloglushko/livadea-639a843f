@@ -1,5 +1,3 @@
-import { LivadeaLogo } from './LivadeaLogo';
-
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -9,9 +7,9 @@ export const Footer = () => {
         <div className="flex flex-col md:flex-row justify-between items-center gap-8">
           {/* Logo & Tagline */}
           <div className="text-center md:text-left">
-            <div className="mb-3">
-              <LivadeaLogo variant="full" colorScheme="light" />
-            </div>
+            <span className="font-serif text-2xl font-medium text-cream block mb-2">
+              Livadea Holdings
+            </span>
             <p className="text-sm text-cream/50">
               Stewards of Businesses. Partners to People.
             </p>

@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { LivadeaLogo } from './LivadeaLogo';
 const navLinks = [{
   label: 'About',
   href: '#about'
@@ -48,11 +47,8 @@ export const Navigation = () => {
       <div className="container-wide px-6 md:px-12 lg:px-20">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-2 transition-opacity duration-300 hover:opacity-80">
-            <LivadeaLogo 
-              variant="full" 
-              colorScheme={isScrolled ? 'dark' : 'light'} 
-            />
+          <a href="#" className="flex items-center gap-2">
+            <span className={`font-serif text-xl md:text-2xl font-medium tracking-tight transition-colors duration-300 ${isScrolled ? 'text-forest' : 'text-cream'}`}>LIVADEA Holdings</span>
           </a>
 
           {/* Desktop Navigation */}
