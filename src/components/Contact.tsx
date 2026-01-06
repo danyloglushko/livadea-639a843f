@@ -85,7 +85,7 @@ export const Contact = () => {
               <Button variant="hero" size="lg" className="w-full py-5 sm:py-6 px-6 sm:px-10 md:px-12">
                 <Calendar className="w-5 h-5 mr-2 flex-shrink-0 text-gold" />
                 <span className="text-sm sm:text-base md:text-lg leading-tight">
-                  Schedule a Confidential Intro Call
+                  Schedule a Conversation
                 </span>
               </Button>
             </a>
