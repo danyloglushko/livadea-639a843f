@@ -1,35 +1,14 @@
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { toast } from 'sonner';
-import { Mail, Phone, MapPin, Shield, Clock, Check } from 'lucide-react';
+import { Mail, Phone, MapPin, Calendar, Clock, UserCheck, Shield } from 'lucide-react';
 import { useScrollAnimation } from '@/hooks/use-scroll-animation';
 
 export const Contact = () => {
   const { ref, isVisible } = useScrollAnimation();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast.success("Thank you for reaching out. We'll be in touch within 2 business days.");
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      message: ''
-    });
-  };
 
   return (
     <section ref={ref} id="contact" className="section-padding bg-forest text-cream">
       <div className="container-wide">
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left - Content */}
           <div className={`transition-all duration-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
             <p className="eyebrow text-gold-light mb-4">Start a Conversation</p>
@@ -41,21 +20,21 @@ export const Contact = () => {
               No pressure, no pitch — just a confidential conversation about what matters to you.
             </p>
 
-            {/* What Happens Next */}
+            {/* What Happens Next - Updated for scheduling flow */}
             <div className="bg-cream/5 rounded-lg p-6 mb-8 border border-cream/10">
-              <h3 className="font-serif text-lg font-medium mb-4">What happens after you reach out:</h3>
+              <h3 className="font-serif text-lg font-medium mb-4">What happens when you schedule:</h3>
               <div className="space-y-3">
                 <div className="flex items-start gap-3">
+                  <Calendar className="w-4 h-4 text-gold-light mt-1 flex-shrink-0" />
+                  <span className="text-cream/80 text-sm">Choose a time that works for you</span>
+                </div>
+                <div className="flex items-start gap-3">
                   <Clock className="w-4 h-4 text-gold-light mt-1 flex-shrink-0" />
-                  <span className="text-cream/80 text-sm">We respond within 2 business days — usually faster</span>
+                  <span className="text-cream/80 text-sm">A brief, private 20–30 minute conversation</span>
                 </div>
                 <div className="flex items-start gap-3">
-                  <Phone className="w-4 h-4 text-gold-light mt-1 flex-shrink-0" />
-                  <span className="text-cream/80 text-sm">A brief intro call (15–30 min) at your convenience</span>
-                </div>
-                <div className="flex items-start gap-3">
-                  <Shield className="w-4 h-4 text-gold-light mt-1 flex-shrink-0" />
-                  <span className="text-cream/80 text-sm">Completely confidential — your information stays private</span>
+                  <UserCheck className="w-4 h-4 text-gold-light mt-1 flex-shrink-0" />
+                  <span className="text-cream/80 text-sm">We move at your pace — no intermediaries, no pressure</span>
                 </div>
               </div>
             </div>
@@ -89,87 +68,52 @@ export const Contact = () => {
             </div>
           </div>
 
-          {/* Right - Form */}
+          {/* Right - Calendar CTA */}
           <div className={`transition-all duration-700 delay-200 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-            {/* What to Include Checklist */}
-            <div className="bg-cream/5 rounded-lg p-5 mb-6 border border-cream/10">
-              <p className="text-sm font-medium text-cream mb-3">Helpful to include (but not required):</p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                <div className="flex items-center gap-2 text-cream/70 text-sm">
-                  <Check className="w-3 h-3 text-gold-light" />
-                  <span>Type of business</span>
-                </div>
-                <div className="flex items-center gap-2 text-cream/70 text-sm">
-                  <Check className="w-3 h-3 text-gold-light" />
-                  <span>Approximate revenue</span>
-                </div>
-                <div className="flex items-center gap-2 text-cream/70 text-sm">
-                  <Check className="w-3 h-3 text-gold-light" />
-                  <span>Location</span>
-                </div>
-                <div className="flex items-center gap-2 text-cream/70 text-sm">
-                  <Check className="w-3 h-3 text-gold-light" />
-                  <span>Timeline / motivation</span>
+            <div className="bg-cream/5 backdrop-blur-sm rounded-lg p-8 md:p-12 border border-cream/10 text-center">
+              {/* Timing reassurance */}
+              <p className="text-sm text-cream/60 mb-6">
+                Many owners book weeks out — whenever feels right to you.
+              </p>
+
+              {/* Primary CTA */}
+              <a
+                href="https://cal.com/livadea/intro-call"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block"
+              >
+                <Button variant="hero" size="xl" className="w-full text-lg py-6">
+                  <Calendar className="w-5 h-5 mr-2" />
+                  Schedule a Confidential Intro Call
+                </Button>
+              </a>
+
+              {/* Microcopy - Key details */}
+              <div className="mt-6 space-y-4">
+                <p className="text-sm text-cream/70 flex items-center justify-center gap-2 flex-wrap">
+                  <span>20–30 minutes</span>
+                  <span className="text-cream/30">·</span>
+                  <span>No pressure</span>
+                  <span className="text-cream/30">·</span>
+                  <span>Founder-led</span>
+                  <span className="text-cream/30">·</span>
+                  <span>Completely confidential</span>
+                </p>
+
+                {/* Emotional reassurance line */}
+                <p className="text-sm text-cream/50 italic">
+                  This is simply a conversation — not a commitment to sell.
+                </p>
+              </div>
+
+              {/* Confidentiality badge */}
+              <div className="mt-8 pt-6 border-t border-cream/10">
+                <div className="flex items-center justify-center gap-2 text-cream/50 text-xs">
+                  <Shield className="w-3.5 h-3.5" />
+                  <span>Your information is confidential and will never be shared</span>
                 </div>
               </div>
-            </div>
-
-            <div className="bg-cream/5 backdrop-blur-sm rounded-lg p-8 md:p-10 border border-cream/10">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div>
-                  <label className="block text-sm text-cream/70 mb-2">Your Name *</label>
-                  <Input
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    placeholder="John Smith"
-                    required
-                    className="bg-cream/5 border-cream/20 text-cream placeholder:text-cream/40 focus:border-gold"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm text-cream/70 mb-2">Email Address *</label>
-                  <Input
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    placeholder="john@example.com"
-                    required
-                    className="bg-cream/5 border-cream/20 text-cream placeholder:text-cream/40 focus:border-gold"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm text-cream/70 mb-2">Phone (Optional)</label>
-                  <Input
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    placeholder="(512) 555-1234"
-                    className="bg-cream/5 border-cream/20 text-cream placeholder:text-cream/40 focus:border-gold"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm text-cream/70 mb-2">Tell us about your business *</label>
-                  <Textarea
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="What's your business? Where are you located? What's motivating your interest in a conversation?"
-                    rows={4}
-                    required
-                    className="bg-cream/5 border-cream/20 text-cream placeholder:text-cream/40 focus:border-gold resize-none"
-                  />
-                </div>
-
-                <Button type="submit" variant="hero" size="lg" className="w-full">
-                  Request Intro Call
-                </Button>
-
-                <p className="text-xs text-center text-cream/50">
-                  Your information is confidential and will never be shared.
-                </p>
-              </form>
             </div>
           </div>
         </div>
