@@ -71,7 +71,7 @@ export const Values = () => {
         {/* Circular Layout - Desktop */}
         <div className={`hidden lg:block relative max-w-4xl mx-auto mb-16 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`} style={{ height: '600px' }}>
           {/* Center element */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-forest flex items-center justify-center shadow-xl">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-forest flex items-center justify-center shadow-xl animate-[glow-pulse_3s_ease-in-out_infinite]">
             <span className="font-serif text-cream text-center text-lg leading-tight px-4">
               Our<br />Values
             </span>
@@ -88,7 +88,7 @@ export const Values = () => {
                   y1="50%"
                   x2={`${pos.x}%`}
                   y2={`${pos.y}%`}
-                  stroke="hsl(var(--forest))"
+                  stroke="hsl(var(--gold))"
                   strokeWidth={hoveredIndex === index ? 2 : 1}
                   strokeOpacity={hoveredIndex === index ? 0.6 : 0.15}
                   strokeDasharray={hoveredIndex === index ? "8 4" : "none"}
