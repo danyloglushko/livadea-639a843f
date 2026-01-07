@@ -74,7 +74,7 @@ export const Navigation = () => {
               <img 
                 src={okanaLogo} 
                 alt="Livadea Holdings" 
-                className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover shadow-md border-2 border-cream/20"
+                className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover shadow-md border-2 border-cream/20 transition-all duration-300 hover:shadow-[0_0_20px_rgba(45,87,44,0.4)] hover:scale-105"
               />
               <span className={`font-serif text-xl md:text-2xl font-medium tracking-tight transition-colors duration-300 ${isScrolled || isMobileMenuOpen ? 'text-forest' : 'text-cream'}`}>
                 Livadea Holdings
