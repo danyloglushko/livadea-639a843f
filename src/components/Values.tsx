@@ -56,16 +56,6 @@ export const Values = () => {
     return { x, y };
   };
 
-  // Get line start position (from edge of center circle)
-  const getLineStart = (index: number) => {
-    const { angle } = positions[index];
-    const radian = (angle * Math.PI) / 180;
-    const centerRadius = 11; // ~11% to match center circle edge
-    const x = 50 + centerRadius * Math.cos(radian);
-    const y = 50 + centerRadius * Math.sin(radian);
-    return { x, y };
-  };
-
   return (
     <section ref={ref} id="values" className="section-padding">
       <div className="container-wide">
@@ -80,40 +70,36 @@ export const Values = () => {
 
         {/* Circular Layout - Desktop */}
         <div className={`hidden lg:block relative max-w-4xl mx-auto mb-16 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`} style={{ height: '600px' }}>
-          {/* Rotating wheel container */}
-          <div className="absolute inset-0 animate-[spin-slow_120s_linear_infinite]">
-            {/* Connecting lines */}
-            <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
-              {values.map((_, index) => {
-                const pos = getPosition(index);
-                const start = getLineStart(index);
-                return (
-                  <line
-                    key={index}
-                    x1={`${start.x}%`}
-                    y1={`${start.y}%`}
-                    x2={`${pos.x}%`}
-                    y2={`${pos.y}%`}
-                    stroke="hsl(var(--gold))"
-                    strokeWidth={hoveredIndex === index ? 2 : 1}
-                    strokeOpacity={hoveredIndex === index ? 0.6 : 0.25}
-                    strokeDasharray={hoveredIndex === index ? "8 4" : "none"}
-                    className="transition-all duration-500"
-                    style={{
-                      animation: hoveredIndex === index ? 'dash 1s linear infinite' : 'none',
-                    }}
-                  />
-                );
-              })}
-            </svg>
-          </div>
-
-          {/* Center element - doesn't rotate */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-forest flex items-center justify-center shadow-xl animate-[glow-pulse_3s_ease-in-out_infinite] border-2 border-gold z-10">
+          {/* Center element */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-forest flex items-center justify-center shadow-xl animate-[glow-pulse_3s_ease-in-out_infinite]">
             <span className="font-serif text-cream text-center text-lg leading-tight px-4">
               Our<br />Values
             </span>
           </div>
+
+          {/* Connecting lines */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
+            {values.map((_, index) => {
+              const pos = getPosition(index);
+              return (
+                <line
+                  key={index}
+                  x1="50%"
+                  y1="50%"
+                  x2={`${pos.x}%`}
+                  y2={`${pos.y}%`}
+                  stroke="hsl(var(--gold))"
+                  strokeWidth={hoveredIndex === index ? 2 : 1}
+                  strokeOpacity={hoveredIndex === index ? 0.6 : 0.15}
+                  strokeDasharray={hoveredIndex === index ? "8 4" : "none"}
+                  className="transition-all duration-500"
+                  style={{
+                    animation: hoveredIndex === index ? 'dash 1s linear infinite' : 'none',
+                  }}
+                />
+              );
+            })}
+          </svg>
 
           {/* Value circles */}
           {values.map((value, index) => {
