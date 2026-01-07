@@ -89,9 +89,13 @@ export const Values = () => {
                   x2={`${pos.x}%`}
                   y2={`${pos.y}%`}
                   stroke="hsl(var(--forest))"
-                  strokeWidth="1"
-                  strokeOpacity={hoveredIndex === index ? 0.4 : 0.15}
+                  strokeWidth={hoveredIndex === index ? 2 : 1}
+                  strokeOpacity={hoveredIndex === index ? 0.6 : 0.15}
+                  strokeDasharray={hoveredIndex === index ? "8 4" : "none"}
                   className="transition-all duration-500"
+                  style={{
+                    animation: hoveredIndex === index ? 'dash 1s linear infinite' : 'none',
+                  }}
                 />
               );
             })}

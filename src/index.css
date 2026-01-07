@@ -224,6 +224,12 @@
     }
   }
 
+  @keyframes dash {
+    to {
+      stroke-dashoffset: -24;
+    }
+  }
+
   .bg-gradient-hero {
     background: linear-gradient(
       180deg,
