@@ -4,7 +4,7 @@ export const ExecutiveSummary = () => {
   const { ref, isVisible } = useScrollAnimation(0.2);
 
   return (
-    <section className="px-6 py-16 md:px-12 md:py-20 lg:px-20 lg:py-24 bg-background border-b border-border/30">
+    <section id="who-we-are" className="px-6 py-16 md:px-12 md:py-20 lg:px-20 lg:py-24 bg-background border-b border-border/30">
       <div 
         ref={ref}
         className={`max-w-3xl mx-auto text-center transition-all duration-700 ease-out ${
