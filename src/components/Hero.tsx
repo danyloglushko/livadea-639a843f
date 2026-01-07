@@ -63,7 +63,7 @@ export const Hero = () => {
               <span className="text-cream/60 text-xs mt-3">No pressure. No brokers. Just a private intro call.</span>
             </div>
             <button
-              onClick={() => document.getElementById('why-we-founded')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('who-we-are')?.scrollIntoView({ behavior: 'smooth' })}
               className="group flex items-center gap-2 text-cream/90 hover:text-cream transition-colors text-sm font-medium"
             >
               Meet the Founders
