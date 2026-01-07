@@ -179,7 +179,7 @@ export const Values = () => {
         </div>
 
         {/* Quote */}
-        <div className={`mt-20 text-center max-w-3xl mx-auto transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <div className={`mt-32 lg:mt-40 text-center max-w-3xl mx-auto transition-all duration-700 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <blockquote className="font-serif text-2xl md:text-3xl text-forest/80 italic leading-relaxed">
             "We're not building a portfolio. We're building a family of businesses 
             we're proud to call our own."
