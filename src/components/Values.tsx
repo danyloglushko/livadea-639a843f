@@ -71,7 +71,7 @@ export const Values = () => {
         {/* Circular Layout - Desktop */}
         <div className={`hidden lg:block relative max-w-4xl mx-auto mb-16 transition-all duration-1000 delay-200 ${isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`} style={{ height: '600px' }}>
           {/* Center element */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-forest flex items-center justify-center shadow-xl animate-[glow-pulse_3s_ease-in-out_infinite]">
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-forest flex items-center justify-center shadow-xl animate-[glow-pulse_3s_ease-in-out_infinite] ring-2 ring-gold ring-offset-2 ring-offset-background">
             <span className="font-serif text-cream text-center text-lg leading-tight px-4">
               Our<br />Values
             </span>
@@ -81,11 +81,18 @@ export const Values = () => {
           <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
             {values.map((_, index) => {
               const pos = getPosition(index);
+              // Calculate the start point at the edge of the center circle (radius ~10.67% of container which is 64px/600px)
+              const centerRadius = 10.67;
+              const angle = positions[index].angle;
+              const radian = (angle * Math.PI) / 180;
+              const startX = 50 + centerRadius * Math.cos(radian);
+              const startY = 50 + centerRadius * Math.sin(radian);
+              
               return (
                 <line
                   key={index}
-                  x1="50%"
-                  y1="50%"
+                  x1={`${startX}%`}
+                  y1={`${startY}%`}
                   x2={`${pos.x}%`}
                   y2={`${pos.y}%`}
                   stroke="hsl(var(--gold))"
